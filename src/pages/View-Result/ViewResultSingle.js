@@ -58,12 +58,12 @@ import {
     labels,
     datasets: [
       {
-        label: 'Dataset 1',
+        label: 'Scope 1 Emissions',
         data: [5,2,1],
         backgroundColor: 'rgb(255, 99, 132)',
       },
       {
-        label: 'Dataset 2',
+        label: 'Scope 2 Emissions',
         data: [2,1,0],
         backgroundColor: 'rgb(75, 192, 192)',
       },
