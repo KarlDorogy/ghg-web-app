@@ -7,8 +7,10 @@ import {
     Title,
     Tooltip,
     Legend,
+    ArcElement,
   } from 'chart.js';
-  import { Bar } from 'react-chartjs-2';
+  import { Bar, Pie} from 'react-chartjs-2';
+  import {View, Flex} from '@aws-amplify/ui-react';
 
   ChartJS.register(
     CategoryScale,
@@ -18,6 +20,8 @@ import {
     Tooltip,
     Legend
   );
+
+  ChartJS.register(ArcElement, Tooltip, Legend);
 
   export const options = {
     plugins: {
@@ -35,9 +39,20 @@ import {
         stacked: true,
       },
     },
+    
+  };
+  export const optionsPie = {
+    plugins: {
+      title: {
+        display: true,
+        text: '2019 Carbon Emissions',
+      },
+    },
+    responsive: true,
+   
   };
   
-  const labels = ['Facility 1', 'Facility 2', 'Facility 3'];
+  const labels = ['fac 1', 'fac 2', 'fac 3', 'fac 4', 'fac 5'];
   
   export const data = {
     labels,
@@ -49,13 +64,36 @@ import {
       },
       {
         label: 'Dataset 2',
-        data: [2,1,3],
+        data: [2,1,0],
         backgroundColor: 'rgb(75, 192, 192)',
       },
+      
+    ],
+  };
+
+  export const pieData = {
+    labels: ['Estimated Natural Gas', 'Estimated Refridgerants', 'Stationary Combustion', 'Mobile Combustion', 'Fugitive Emissions', 'Purchased Electricity'],
+    datasets: [
       {
-        label: 'Dataset 3',
-        data: [1,0,4],
-        backgroundColor: 'rgb(53, 162, 235)',
+        label: 'Amount Of Emissions',
+        data: [12, 19, 3, 5, 2, 3],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+        ],
+        borderWidth: 1,
       },
     ],
   };
@@ -84,7 +122,33 @@ function ViewResultSingle(){
 
       
     return(
-        <Bar options={options} data={data} />
+      <Flex
+        direction="row"
+        justifyContent="space-evenly"
+        alignItems="stretch"
+        alignContent="flex-start"
+        wrap="wrap"
+        gap="10rem"
+        paddingBottom={"10rem"}
+      >
+          <View
+            height="50rem"
+            width="50rem"
+          >
+            <Bar 
+            options={options}
+            data={data} />
+          </View>
+          <View
+            height="40rem"
+            width="40rem"
+          >
+            <Pie 
+            data={pieData}
+            options={optionsPie}
+            />
+          </View>
+      </Flex>  
     );
 
 
