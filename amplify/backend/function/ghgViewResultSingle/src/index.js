@@ -13,7 +13,8 @@ exports.handler = async (event, context, callback) => {
 
     // Query backend and format data, then put it into body of API response
     const userid = event.queryStringParameters.id;
-    await readProfile('31').then((data) => {
+    await readProfile().then((data) => {
+        
         console.log(data)
         const dataObj = {
             name: data.Item.id
