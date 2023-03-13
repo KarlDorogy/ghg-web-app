@@ -10,7 +10,7 @@ import {
     ArcElement,
   } from 'chart.js';
   import { Bar, Pie} from 'react-chartjs-2';
-  import {View, Flex} from '@aws-amplify/ui-react';
+  import {View, Flex, Card} from '@aws-amplify/ui-react';
 
   ChartJS.register(
     CategoryScale,
@@ -130,25 +130,30 @@ function ViewResultSingle(){
         alignItems="stretch"
         alignContent="flex-start"
         wrap="wrap"
-        gap="10rem"
+        gap="1rem"
         paddingBottom={"10rem"}
+        paddingTop="1rem"
       >
           <View
             height="50rem"
             width="50rem"
           >
+            <Card variation='elevated'>
             <Bar 
             options={options}
             data={data} />
+            </Card>
           </View>
           <View
             height="40rem"
             width="40rem"
           >
+            <Card variation='elevated'>
             <Pie 
             data={pieData}
             options={optionsPie}
             />
+            </Card>
           </View>
       </Flex>  
     );
