@@ -54,7 +54,7 @@ import {
    
   };
   
-  const labels = ['fac 1', 'fac 2', 'fac 3', 'fac 4', 'fac 5'];
+  const labels = ['fac 1', 'fac 2', 'fac 3', 'fac 4', 'fac 5', 'fac 6', 'fac 7'];
   
   export const data = {
     labels,
@@ -136,9 +136,9 @@ function ViewResultSingle(){
       >
           <View
             height="50rem"
-            width="50rem"
+            width="75rem"
           >
-            <Card variation='elevated'>
+            <Card variation='outlined'>
             <Bar 
             options={options}
             data={data} />
@@ -146,9 +146,9 @@ function ViewResultSingle(){
           </View>
           <View
             height="40rem"
-            width="40rem"
+            width="38.5rem"
           >
-            <Card variation='elevated'>
+            <Card variation='outlined'>
             <Pie 
             data={pieData}
             options={optionsPie}
